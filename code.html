@@ -49,10 +49,10 @@
     hua.strokeText("所有的",80,13);
     hua.strokeStyle="blue";
     hua.font="隶体  20px";
-    hua.rotate(10*Math.PI/180);
-    hua.strokeText(objectName,120,-10);
+    //hua.rotate(10*Math.PI/180);
+    hua.strokeText(objectName,120,12);
 
-
+    //hua.rotate(0*Math.PI/180);
 
 
 
@@ -60,10 +60,7 @@
     for(var  n=0;n<6;n++)
     {
         for(var  x=0;x<5;x++){
-            var  h="<img id='"+objImages[n]+(x+1)+"' src='images/"+objImages[n]+(x+1)+".jpg' style='width:30px;height:30px;display:none;'";
-            document.write(h);
-
-            //document.write("<img id='"+objImages[n]+(x+1)+"' src='images/"+objImages[n]+(x+1)+".jpg' style='width:30px;height:30px;'");
+            document.write("<img id='"+objImages[n]+(x+1)+"' src='images/"+objImages[n]+(x+1)+".jpg' style='width:30px;height:30px;display:none;' />");
         }
     }
 
@@ -72,30 +69,16 @@
 
     //随机出八张图片的路径
     for(var n=0;n<8;n++){
-        if(n%3==0&&(n!=3))
+        if(n%3==0&&(n!=0))
         {
             x=10;
-            y+=140;
+            y+=60;
         }
-        var tempIndex=(parseInt(Math.random()*100000)%5+1);
-        var tempImg=(parseInt(Math.random()*100000)%6);
-        if(n+1>=randomCount)
-        {
-            if(tempImg==randomIndex){
-                n--;
-                continue;
-            }else
-            {
-                var img=document.getElementById(objImages[tempImg]+tempIndex);
-                hua.drawImage(img,x,y,90,90);
-                x+=95;
-                continue;
-            }
-        }
+        var  randomIndex=parseInt(Math.random()*100000)%6;
+        var   randomCount=parseInt(Math.random()*100000)%5+1;
+        hua.drawImage(document.getElementById(objImages[randomIndex]+randomCount),x,y,90,40);
+        x+=90;
 
-        var img=document.getElementById(objImages[randomIndex]+tempIndex);
-        hua.drawImage(img,x,y,90,90);
-        x+=95;
     }
 
 </script>
